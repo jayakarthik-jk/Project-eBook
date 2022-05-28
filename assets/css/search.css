@@ -1,0 +1,36 @@
+.container-book {
+  min-height: 90vh;
+}
+.section-book .card-book {
+  margin: 10px;
+  background-color: azure;
+  border: 1px solid #ff5c58;
+  border-radius: 15px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.section-book .card-book img {
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.section-book .card-book .card-details {
+  display: none;
+}
+.card-details p {
+  text-align: start;
+}
+.search-title {
+  padding: 1vh 1vw;
+}
+a {
+  text-decoration: none;
+}
+.links:hover {
+  color: #dc3545;
+}
+header {
+  font-weight: bold;
+}

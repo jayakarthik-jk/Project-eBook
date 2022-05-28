@@ -1,0 +1,18 @@
+a {
+  text-decoration: none;
+}
+.links:hover {
+  color: #dc3545;
+}
+.intro {
+  min-height: 90vh;
+  padding: 3vh 5vw;
+}
+
+.intro .animation {
+  width: 75%;
+  height: 75vh;
+}
+header {
+  font-weight: bold;
+}
