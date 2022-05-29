@@ -71,7 +71,7 @@
             class="d-flex"
             role="search"
             method="get"
-            action="./assets/pages/search.html"
+            action="./search.html"
           >
             <div class="d-flex">
               <input
@@ -95,6 +95,50 @@
       </div>
     </header>
     <!-- End Header -->
+
+    <section class="container book-info-block">
+      <div class="row m-4">
+        <div
+          class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center"
+        >
+          <img
+            alt="Book Image"
+            id="thumbnail"
+            src="../img/placeholder.jpg"
+            width="150"
+            height="200"
+            class="book-img"
+            loading="lazy"
+          />
+        </div>
+        <div class="col-12 col-sm-6 col-md-8 col-lg-9">
+          <h5 class="m-2 p-2">Title : <span id="title"></span></h5>
+          <h6 class="m-2 p-2">Authors : <span id="author"></span></h6>
+          <h6 class="m-2 p-2">Page Count : <span id="pageCount"></span></h6>
+        </div>
+      </div>
+      <div class="row m-4">
+        <div class="col-12 m-2">
+          published Date: <span id="publishedDate"></span>
+        </div>
+        <div class="col-12 m-2">
+          <span id="description"
+            >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus
+            dolor unde atque ipsa possimus ipsam alias, vitae corrupti dolore
+            illum esse veniam nisi! Omnis iure, ipsam dolores maiores ducimus
+            aliquid.</span
+          >
+        </div>
+        <div class="col-12 m-2">
+          average Rating : <span id="averageRating"></span>
+        </div>
+        <div class="col-12 d-flex justify-content-center align-items-center">
+          <a href="#" id="infoLink"
+            ><button class="btn btn-outline-danger">More Details</button></a
+          >
+        </div>
+      </div>
+    </section>
 
     <!-- Start Footer -->
     <footer class="text-center text-lg-start text-white bg-danger" id="footer">

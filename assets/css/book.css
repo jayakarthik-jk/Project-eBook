@@ -7,3 +7,8 @@ a {
 header {
   font-weight: bold;
 }
+.book-img {
+  background-color: azure;
+  border: 1px solid #ff5c58;
+  border-radius: 15px;
+}

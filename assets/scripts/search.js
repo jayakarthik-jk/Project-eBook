@@ -4,6 +4,7 @@ window.addEventListener("load", (event) => {
   let url = new URL(window.location.href);
   let query = url.searchParams.get("search");
   document.title += query;
+  document.getElementById("query").innerText = query;
   if (query == "" || query == " ") {
     return;
   }
@@ -18,6 +19,8 @@ function setBookComponent(params) {
 
 function getBookComponent(params) {
   params.title = params.title.trim();
+  urlparams = `../pages/book.html?title=${params.title}&author=${params.author}&publishedDate=${params.publishedDate}&pageCount=${params.pageCount}&averageRating=${params.averageRating}&thumbnail=${params.thumbnail}&infoLink=${params.infoLink}&description=${params.description}`;
+  console.log(params.infoLink);
   return `
   <div class="list-group-item list-group-item-action">
       <div class="row">
@@ -37,7 +40,7 @@ function getBookComponent(params) {
           <h6 class="p-2">Author : ${params.author}</h6>
           <p class="p-2">Pages : ${params.pageCount}</p>
           <br />
-          <a href="#" class=" p-2 m-2 mt-auto align-self-end"><button class="btn btn-outline-danger">View Book</button></a>
+          <a href="${urlparams}" class=" p-2 m-2 mt-auto align-self-end"><button class="btn btn-outline-danger">View Book</button></a>
         </div>
       </div>
       </div>
@@ -46,7 +49,7 @@ function getBookComponent(params) {
 async function getBooks(params) {
   try {
     const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=intitle:${params}&country=IN&maxResults=40`
+      `https://www.googleapis.com/books/v1/volumes?q=intitle=${params}&country=IN&maxResults=40`
     );
     try {
       const json = await response.json();
@@ -58,6 +61,8 @@ async function getBooks(params) {
           pageCount: undefined,
           thumbnail: undefined,
           infoLink: undefined,
+          publishedDate: undefined,
+          averageRating: undefined,
         };
         let no_of_books;
         try {
@@ -97,6 +102,16 @@ async function getBooks(params) {
                 }
                 if ("infoLink" in book.volumeInfo) {
                   bookData.infoLink = book.volumeInfo.infoLink;
+                } else {
+                  return;
+                }
+                if ("publishedDate" in book.volumeInfo) {
+                  bookData.publishedDate = book.volumeInfo.publishedDate;
+                } else {
+                  return;
+                }
+                if ("averageRating" in book.volumeInfo) {
+                  bookData.averageRating = book.volumeInfo.averageRating;
                 } else {
                   return;
                 }
