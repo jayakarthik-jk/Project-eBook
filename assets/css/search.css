@@ -1,14 +1,10 @@
 .container-book {
   min-height: 90vh;
 }
-.section-book .card-book {
-  margin: 10px;
+.section-book .book-img {
   background-color: azure;
   border: 1px solid #ff5c58;
   border-radius: 15px;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
 }
 
 .section-book .card-book img {
