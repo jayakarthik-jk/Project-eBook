@@ -35,7 +35,7 @@ function getBookComponent(params) {
           />
         </div>
         <div class="col-6 col-sm-8 col-md-9 col-lg-10 d-flex flex-column">
-          <h5 class="p-2">${params.title}</h5>
+          <h5 class="p-2 fw-semibold">${params.title}</h5>
           <h6 class="p-2">Author : ${params.author}</h6>
           <p class="p-2">Pages : ${params.pageCount}</p>
           <br />

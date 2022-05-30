@@ -9,9 +9,6 @@ a {
 .links:hover {
   color: #dc3545;
 }
-header {
-  font-weight: bold;
-}
 .book-img {
   background-color: azure;
   border: 1px solid #ff5c58;
