@@ -5,12 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project { eBook } -&nbsp;</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
@@ -22,7 +17,7 @@
     <header class="navbar navbar-expand-lg navbar-dark sticky-top bg-light">
       <div class="container">
         <a class="navbar-brand text-danger" href="#"
-          ><span class="brand">Project { eBook }</span></a
+          ><span class="brand fw-bold">Project { eBook }</span></a
         >
         <button
           class="navbar-toggler bg-danger"
@@ -107,30 +102,32 @@
             src="../img/placeholder.jpg"
             width="150"
             height="200"
-            class="book-img"
+            class="book-img img-thumbnail rounded"
             loading="lazy"
           />
         </div>
         <div class="col-12 col-sm-6 col-md-8 col-lg-9">
-          <h5 class="m-2 p-2">Title : <span id="title"></span></h5>
-          <h6 class="m-2 p-2">Authors : <span id="author"></span></h6>
-          <h6 class="m-2 p-2">Page Count : <span id="pageCount"></span></h6>
+          <h5 class="m-2 p-2">
+            Title : <span id="title">Title Not Found</span>
+          </h5>
+          <h6 class="m-2 p-2">
+            Authors : <span id="author">Author Name not found</span>
+          </h6>
+          <h6 class="m-2 p-2">
+            Page Count : <span id="pageCount">Page Count not Found</span>
+          </h6>
         </div>
       </div>
       <div class="row m-4">
         <div class="col-12 m-2">
-          published Date: <span id="publishedDate"></span>
+          published Date:
+          <span id="publishedDate">Published Date not Found</span>
         </div>
         <div class="col-12 m-2">
-          <span id="description"
-            >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus
-            dolor unde atque ipsa possimus ipsam alias, vitae corrupti dolore
-            illum esse veniam nisi! Omnis iure, ipsam dolores maiores ducimus
-            aliquid.</span
-          >
+          Description : <span id="description">description not found</span>
         </div>
         <div class="col-12 m-2">
-          average Rating : <span id="averageRating"></span>
+          average Rating : <span id="averageRating">Rating not found</span>
         </div>
         <div class="col-12 d-flex justify-content-center align-items-center">
           <a href="#" id="infoLink"
@@ -156,28 +153,28 @@
             href="https://www.facebook.com/jaya.karthik.oo7"
             class="text-white me-4"
           >
-            <i class="bi-facebook"></i>
+            <i class="bi-facebook p-1 m-1 fs-4"></i>
           </a>
           <a href="https://twitter.com/jayakarthik_jk/" class="text-white me-4">
-            <i class="bi-twitter"></i>
+            <i class="bi-twitter p-1 m-1 fs-4"></i>
           </a>
           <a href="mailto:jayakarthik7312@gmail.com" class="text-white me-4">
-            <i class="bi-google"></i>
+            <i class="bi-google p-1 m-1 fs-4"></i>
           </a>
           <a
             href="https://www.instagram.com/jayakarthik.jk/"
             class="text-white me-4"
           >
-            <i class="bi-instagram"></i>
+            <i class="bi-instagram p-1 m-1 fs-4"></i>
           </a>
           <a
             href="https://www.linkedin.com/in/jayakarthik-k-aa8a5922a"
             class="text-white me-4"
           >
-            <i class="bi-linkedin"></i>
+            <i class="bi-linkedin p-1 m-1 fs-4"></i>
           </a>
           <a href="https://github.com/jayakarthik-jk" class="text-white me-4">
-            <i class="bi-github"></i>
+            <i class="bi-github p-1 m-1 fs-4"></i>
           </a>
         </div>
         <!-- Right -->
@@ -250,11 +247,7 @@
     </footer>
     <!-- End Footer  -->
     <section>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"
-      ></script>
+      <script src="../bootstrap/js/bootstrap.bundle.js"></script>
       <script src="../scripts/book.js"></script>
     </section>
   </body>

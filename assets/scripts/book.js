@@ -9,7 +9,6 @@ parameters_object = {
   publishedDate: url.searchParams.get("publishedDate"),
   averageRating: url.searchParams.get("averageRating"),
 };
-console.log(parameters_object.infoLink);
 document.title += parameters_object.title;
 document.getElementById("title").innerText = parameters_object.title;
 document.getElementById("author").innerText = parameters_object.author;

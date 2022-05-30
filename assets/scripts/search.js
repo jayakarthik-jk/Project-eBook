@@ -3,11 +3,11 @@ let container = document.getElementById("section-book");
 window.addEventListener("load", (event) => {
   let url = new URL(window.location.href);
   let query = url.searchParams.get("search");
-  document.title += query;
-  document.getElementById("query").innerText = query;
   if (query == "" || query == " ") {
     return;
   }
+  document.title += query;
+  document.getElementById("query").innerText = query;
   query = query.trim();
   query = query.replace(" ", "+");
   getBooks(query);
@@ -20,7 +20,6 @@ function setBookComponent(params) {
 function getBookComponent(params) {
   params.title = params.title.trim();
   urlparams = `../pages/book.html?title=${params.title}&author=${params.author}&publishedDate=${params.publishedDate}&pageCount=${params.pageCount}&averageRating=${params.averageRating}&thumbnail=${params.thumbnail}&infoLink=${params.infoLink}&description=${params.description}`;
-  console.log(params.infoLink);
   return `
   <div class="list-group-item list-group-item-action">
       <div class="row">
@@ -31,7 +30,7 @@ function getBookComponent(params) {
             width="150"
             height="200"
             id="book-img"
-            class="book-img"
+            class="book-img img-thumbnail rounded"
             loading="lazy"
           />
         </div>
@@ -53,75 +52,55 @@ async function getBooks(params) {
     );
     try {
       const json = await response.json();
+      console.log(json);
       try {
         let bookData = {
-          title: undefined,
+          title: "Not Available",
           author: "",
-          description: undefined,
-          pageCount: undefined,
+          description: "Not Available",
+          pageCount: "Not Available",
           thumbnail: undefined,
           infoLink: undefined,
-          publishedDate: undefined,
-          averageRating: undefined,
+          publishedDate: "Not Available",
+          averageRating: "Not Available ",
         };
-        let no_of_books;
+        let component = "";
         try {
-          if ("totalItems" in json) {
-            no_of_books = json.totalItems;
-          }
           if ("items" in json) {
             json.items.forEach((book) => {
               if ("volumeInfo" in book) {
                 if ("title" in book.volumeInfo) {
                   bookData.title = book.volumeInfo.title;
-                } else {
-                  return;
                 }
                 if ("description" in book.volumeInfo) {
                   bookData.description = book.volumeInfo.description;
-                } else {
-                  return;
                 }
                 if ("pageCount" in book.volumeInfo) {
                   bookData.pageCount = book.volumeInfo.pageCount;
-                } else {
-                  return;
                 }
                 if ("imageLinks" in book.volumeInfo) {
                   bookData.thumbnail = book.volumeInfo.imageLinks.thumbnail;
-                } else {
-                  return;
                 }
                 if ("authors" in book.volumeInfo) {
                   bookData.author = "";
                   book.volumeInfo.authors.forEach((author) => {
                     bookData.author += "  " + author;
                   });
-                } else {
-                  return;
                 }
                 if ("infoLink" in book.volumeInfo) {
                   bookData.infoLink = book.volumeInfo.infoLink;
-                } else {
-                  return;
                 }
                 if ("publishedDate" in book.volumeInfo) {
                   bookData.publishedDate = book.volumeInfo.publishedDate;
-                } else {
-                  return;
                 }
                 if ("averageRating" in book.volumeInfo) {
                   bookData.averageRating = book.volumeInfo.averageRating;
-                } else {
-                  return;
                 }
-                let component = getBookComponent(bookData);
-                setBookComponent(component);
-              } else {
-                return;
+                component += getBookComponent(bookData);
               }
             });
           }
+          setBookComponent(component);
         } catch (error) {
           console.log("Error in books function", error);
           alert("Something went wrong please try again later...");
