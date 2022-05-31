@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 960 1080" style="enable-background:new 0 0 960 1080;" xml:space="preserve">
 <style type="text/css">
@@ -32,6 +30,67 @@
 	.st26{opacity:0.5;fill:#F3E7D9;}
 	.st27{fill:#29ABE2;}
 	.st28{fill:none;stroke:#273252;stroke-miterlimit:10;}
+	@keyframes head-turn {
+    0% {transform: rotateZ(0deg);}
+    50% {transform: rotateZ(-15deg);}
+    100% {transform: rotateZ(0deg)}
+	}
+	@keyframes hand-move {
+		0% {transform: rotateZ(0deg);}
+		50% {
+			transform: rotateZ(-15deg) translateY(-5px);
+		}
+		100% {transform: rotateZ(0deg)}
+	}
+	@keyframes cape-movement{
+		0%{transform: skew(0, 0);}
+		50%{transform: skew(5deg,-2.5deg) translateY(10px);}
+		100%{transform: skew(0, 0);}
+	}
+	@keyframes flash{
+		25%{
+			fill:#F00;
+		}
+		50%{
+			fill:#0F0;
+		}
+		75%{
+			fill:#00F;
+		}
+		<!-- from{ fill: #ffae17;}
+		to{fill: #ffe5b5;} -->
+	}
+
+	#head{
+		animation: head-turn 3s ease;
+		animation-delay: 1s;
+		animation-iteration-count: infinite;
+		transform-origin: center;
+		transform-box: fill-box;
+	}
+
+	#R_forearm{
+		animation: hand-move 5s ease infinite;
+		transform-origin: right bottom;
+		transform-box: fill-box;
+	}
+
+	#cape, #hoodie{
+		animation: cape-movement 5s ease-out infinite;
+		transform-origin: center;
+	}
+
+	#yellow-board{
+		fill: #ffae17;
+		animation: flash 10s ease-in infinite;
+		border: 2px solid black;
+	}
+	#title-ebook{
+		fill : #FFF;
+	}
+	#title-shine{
+		visibility: hidden;
+	}
 </style>
 <g id="ground">
 	<path class="st0" d="M385.23,989.58c0,0,118.68-7.91,125.01,7.91c6.33,15.82-42.73,18.99-96.53,22.15
@@ -195,19 +254,19 @@
 		
 			<rect x="514.64" y="668.71" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 1196.3777 147.3826)" class="st8" width="19.72" height="6.33"/>
 	</g>
-	<g>
+	<g id="title-board">
 		<path class="st9" d="M467.09,355.79l-153.65-6.21c-15.54-0.48-27.9-13.57-27.9-30.15v-17.09c0-16.59,21.64-30.15,37.19-29.2
 			l147.16,8.7c13.42,0.82,28.24,21.64,28.22,36.79l-1.05,16.88C497.03,350.66,480.5,356.2,467.09,355.79z"/>
-		<path class="st12" d="M480.65,351.08l-154.63-6.06c-15.64-0.46-28.47-14.32-28.47-30.95l0-12.78c0-16.64,12.84-29.36,28.49-28.42
+		<path id="yellow-board" d="M480.65,351.08l-154.63-6.06c-15.64-0.46-28.47-14.32-28.47-30.95l0-12.78c0-16.64,12.84-29.36,28.49-28.42
 			l150.61,7.29c13.51,0.81,27.3,14.77,27.27,29.97l-0.02,11.68C503.89,337,494.15,351.48,480.65,351.08z"/>
-		<text transform="matrix(1.0122 0.0483 0 1 328.7381 320.4519)" class="st9 st23 st24">E-BOOKS</text>
-		<path class="st25" d="M476.13,348c0,0-156.9-72.94-142.48-72.08l138.8,6.72c12.45,0.75,25.16,13.61,25.13,27.62l-0.02,10.76
+		<text transform="matrix(1.0122 0.0483 0 1 328.7381 320.4519)" class="st23 st24" id="title-ebook">E-BOOK</text>
+		<path id="title-shine" class="st25" d="M476.13,348c0,0-156.9-72.94-142.48-72.08l138.8,6.72c12.45,0.75,25.16,13.61,25.13,27.62l-0.02,10.76
 			C497.54,335.03,488.57,348.37,476.13,348z"/>
 	</g>
 	<path class="st6" d="M188.62,938.15c0,0-9.1-18.99-7.91-24.92s11.87,12.66,11.87,12.66s-2.37-15.43,7.12-16.62s3.16,8.7,3.16,8.7
 		s15.43-7.12,17.8-3.56c2.37,3.56-11.87,15.43-11.87,15.43s11.87-7.12,13.05,2.37S207.6,945.27,188.62,938.15z"/>
 </g>
-<g id="galss_shine">
+<g id="glass_shine">
 	<polygon class="st26" points="316.26,386.29 477.8,825.8 429.54,827.38 316.26,489.54 	"/>
 </g>
 <g id="skirt-under">
