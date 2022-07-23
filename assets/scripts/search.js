@@ -1,4 +1,6 @@
-let container = document.getElementById("section-book");
+const container = document.getElementById("section-book");
+const loading = document.getElementById("animation-container");
+const notfound = document.getElementById("notfound");
 
 window.addEventListener("load", (event) => {
   let url = new URL(window.location.href);
@@ -19,7 +21,8 @@ function setBookComponent(params) {
 
 function getBookComponent(params) {
   params.title = params.title.trim();
-  urlparams = `../pages/book.html?title=${params.title}&author=${params.author}&publishedDate=${params.publishedDate}&pageCount=${params.pageCount}&averageRating=${params.averageRating}&thumbnail=${params.thumbnail}&infoLink=${params.infoLink}&description=${params.description}`;
+  urlparams = `../pages/book.html?title=${params.title}`;
+  sessionStorage.setItem(params.title, JSON.stringify(params));
   return `
   <div class="list-group-item list-group-item-action">
       <div class="row">
@@ -52,15 +55,15 @@ async function getBooks(params) {
     );
     try {
       const json = await response.json();
-      console.log(json);
+
       try {
         let bookData = {
           title: "Not Available",
           author: "",
           description: "Not Available",
           pageCount: "Not Available",
-          thumbnail: undefined,
-          infoLink: undefined,
+          thumbnail: null,
+          infoLink: null,
           publishedDate: "Not Available",
           averageRating: "Not Available ",
         };
@@ -97,23 +100,32 @@ async function getBooks(params) {
                   bookData.averageRating = book.volumeInfo.averageRating;
                 }
                 component += getBookComponent(bookData);
+                loading.style.display = "none";
               }
             });
           }
           setBookComponent(component);
         } catch (error) {
+          loading.style.display = "none";
+          notfound.style.display = "flex";
           console.log("Error in books function", error);
           alert("Something went wrong please try again later...");
         }
       } catch (error) {
+        loading.style.display = "none";
+        notfound.style.display = "flex";
         console.log("error fetching data from response");
         alert("Something went wrong please try again later...");
       }
     } catch (error) {
+      loading.style.display = "none";
+      notfound.style.display = "flex";
       console.log("error converting response into json");
       alert("Something went wrong please try again later...");
     }
   } catch (error) {
+    loading.style.display = "none";
+    notfound.style.display = "flex";
     console.log("error getting Response");
     alert("Something went wrong please try again later...");
   }

@@ -1,14 +1,7 @@
-let url = new URL(window.location.href);
-parameters_object = {
-  title: url.searchParams.get("title"),
-  author: url.searchParams.get("author"),
-  description: url.searchParams.get("description"),
-  pageCount: url.searchParams.get("pageCount"),
-  thumbnail: url.searchParams.get("thumbnail"),
-  infoLink: url.searchParams.get("infoLink"),
-  publishedDate: url.searchParams.get("publishedDate"),
-  averageRating: url.searchParams.get("averageRating"),
-};
+const url = new URL(window.location.href);
+const title = url.searchParams.get("title");
+const parameters_object = JSON.parse(sessionStorage.getItem(title));
+console.log(parameters_object);
 document.title += parameters_object.title;
 document.getElementById("title").innerText = parameters_object.title;
 document.getElementById("author").innerText = parameters_object.author;
